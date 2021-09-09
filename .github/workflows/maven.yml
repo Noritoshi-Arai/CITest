@@ -1,0 +1,44 @@
+#CI TEST
+#ワークフロー名
+name: Build and push
+
+#push時にこのワークフローを起動
+on:
+  push:
+    branches: [ main ]
+
+#Jobの定義
+jobs:
+  build-and-push:
+    #Jobの実行環境
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2 #リポジトリからのチェックアウト
+
+    #Maven
+    - name: Set up JDK 14
+      uses: actions/setup-java@v1
+      with:
+        java-version: '14.0.1'
+    
+    - name: Maven purge
+      run: mvn dependency:purge-local-repository -DreResolve=false -f Java-Architect_Spring/pom.xml
+
+    - name: Build and Test With Maven
+      run: mvn clean package -f Java-Architect_Spring/pom.xml
+
+    #Docker
+    - name: Set up Docker Buildx
+      uses: docker/setup-build-action@v1
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME}}
+        password: ${ secrets.DOCKERHUB_PASSWORD}
+
+    - name: Build, tag, and push image to Github
+      run: |
+        docker build -t noritoshi25/citest:latest .
+        docker push noritoshi25/citest:latest
