@@ -23,7 +23,7 @@ jobs:
         java-version: '14.0.1'
     
     - name: Maven purge
-      run: mvn dependency:purge-local-repository -DreResolve=false -f Java-Architect_Spring/target/m2e-wtp/web-resources/META-INF/maven/Java_Architect_Spring/Java_Architect_Spring\pom.xml
+      run: mvn dependency:purge-local-repository -DreResolve=false -f Java-Architect_Spring/target/m2e-wtp/web-resources/META-INF/maven/Java_Architect_Spring/Java_Architect_Spring/pom.xml
 
     - name: Build and Test With Maven
       run: mvn clean package -f Java-Architect_Spring/pom.xml
