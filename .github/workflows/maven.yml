@@ -28,7 +28,7 @@ jobs:
     - name: Build and Test With Maven
       run: mvn clean package -f Java-Architect_Spring/pom.xml
 
-    #Docker
+    #Docker Build and Push
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
