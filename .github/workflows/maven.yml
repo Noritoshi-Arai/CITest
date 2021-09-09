@@ -5,7 +5,7 @@ name: Build and push
 #push時にこのワークフローを起動
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 #Jobの定義
 jobs:
