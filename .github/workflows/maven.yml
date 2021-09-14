@@ -26,7 +26,7 @@ jobs:
       run: mvn dependency:purge-local-repository -DreResolve=false -f ./Java_Architect_Spring/pom.xml
 
     - name: Build and Test With Maven
-      run: mvn clean package -f Java-Architect_Spring/pom.xml
+      run: mvn clean package -f Java_Architect_Spring/pom.xml
 
     #Docker Build and Push
     - name: Set up Docker Buildx
