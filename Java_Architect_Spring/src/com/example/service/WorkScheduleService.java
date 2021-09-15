@@ -13,7 +13,7 @@ public class WorkScheduleService {
 	@Autowired
 	private WorkScheduleDao workScheduleDao;
 	
-	//o‹Î—\’è‚ğŒŸõ‚·‚éƒƒ\ƒbƒhio‹Î—\’è“ü—Í‹@”\—pj
+	//å‡ºå‹¤äºˆå®šã‚’æ¤œç´¢ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆå‡ºå‹¤äºˆå®šå…¥åŠ›æ©Ÿèƒ½ç”¨ï¼‰
 	public List<WorkScheduleEntity> searchStatus(String id, String year, String month){
 		/*
 		if((year == null || year.length() == 0) && (month == null || month.length() == 0)) {
@@ -29,17 +29,17 @@ public class WorkScheduleService {
 		return wsList;
 	}
 	
-	//o‹Î—\’è‚ğXV‚·‚éƒƒ\ƒbƒh
+	//å‡ºå‹¤äºˆå®šã‚’æ›´æ–°ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
 	public boolean updateStatus(String id, String date, int status) {
 		boolean result = false;
 		result = workScheduleDao.update(id, date, status);
 		return result;
 	}
 	
-	//o‹Î—\’è‚ğŒŸõ‚·‚éƒƒ\ƒbƒhio‹Î—\’èŒŸõ‹@”\—pj
+	//å‡ºå‹¤äºˆå®šã‚’æ¤œç´¢ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆå‡ºå‹¤äºˆå®šæ¤œç´¢æ©Ÿèƒ½ç”¨ï¼‰
 	public List<WorkScheduleEntity> searchName(String nameKanji, String nameKana, String startYear, String startMonth, 
 			String startDay, String finishYear, String finishMonth, String finishDay){
-		//Œ‚Æ“ú‚ªˆêŒ…‚Ìê‡0‚ğ•t‰Á
+		//æœˆã¨æ—¥ãŒä¸€æ¡ã®å ´åˆ0ã‚’ä»˜åŠ 
 		if(startMonth.length() == 1) {
 			startMonth = "0" + startMonth;
 		}
@@ -53,21 +53,21 @@ public class WorkScheduleService {
 			finishDay = "0" + finishDay;
 		}
 		
-		//“ú•tiƒXƒ^[ƒgj‚Énull‚ª‚ ‚é‚©ƒ`ƒFƒbƒN
+		//æ—¥ä»˜ï¼ˆã‚¹ã‚¿ãƒ¼ãƒˆï¼‰ã«nullãŒã‚ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
 		if((startYear == null || startYear.length() == 0) && (startMonth == null || startMonth.length() == 0) && (startDay == null || startDay.length() == 0)) {
 			startYear = finishYear;
 			startMonth = finishMonth;
 			startDay = finishDay;
 		}
 				
-		//“ú•tiI‚í‚èj‚Énull‚Í‚È‚¢‚©ƒ`ƒFƒbƒN
+		//æ—¥ä»˜ï¼ˆçµ‚ã‚ã‚Šï¼‰ã«nullã¯ãªã„ã‹ãƒã‚§ãƒƒã‚¯
 		if((finishYear == null || finishYear.length() == 0) && (finishMonth == null || finishMonth.length() == 0) && (finishDay == null || finishDay.length() == 0)) {
 			finishYear = startYear;
 			finishMonth = startMonth;
 			finishDay = startDay;
 		}
 		
-		//‘S‚Ä‚Ì“ú•t‚É“ü—Í‚ª‚È‚¢ê‡
+		//å…¨ã¦ã®æ—¥ä»˜ã«å…¥åŠ›ãŒãªã„å ´åˆ
 		String startDate = startYear + startMonth + startDay;
 		String finishDate = finishYear + finishMonth + finishDay;
 				
@@ -77,7 +77,7 @@ public class WorkScheduleService {
 			SimpleDateFormat msdf = new SimpleDateFormat("MM");
 			SimpleDateFormat dsdf = new SimpleDateFormat("dd");
 					
-			//Œ»İ‚Ì”N‚ÆŒ‚ğæ“¾
+			//ç¾åœ¨ã®å¹´ã¨æœˆã‚’å–å¾—
 			Date date = new Date();
 			startYear = finishYear = ysdf.format(date);
 			startMonth = finishMonth = msdf.format(date);
@@ -89,7 +89,7 @@ public class WorkScheduleService {
 		
 	}
 	
-	//Toppage—pƒƒ\ƒbƒhi—L‹xj
+	//Toppageç”¨ãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆæœ‰ä¼‘ï¼‰
 	public boolean message(String id, String year, String month) {
 		boolean result = false;
 		Date date = workScheduleDao.searchRest(id, year, month);

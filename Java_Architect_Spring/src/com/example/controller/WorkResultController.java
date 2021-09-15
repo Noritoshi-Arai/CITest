@@ -55,21 +55,21 @@ public class WorkResultController {
 				if((wrEntity.getStatus() != Integer.parseInt(status.get(i))) ||
 						(wrEntity.getTimeStart() != Integer.parseInt(timeStartList.get(i))) ||
 						(wrEntity.getTimeFinish() != Integer.parseInt(timeFinishList.get(i)))) {
-					//timeStartList�̐擪�����̃`�F�b�N
+					//timeStartListの先頭文字のチェック
 					if(timeStartList.get(i).startsWith("0")) {
 						timeStart = timeStartList.get(i).substring(1,4);
 					}else {
 						timeStart = timeStartList.get(i);
 					}
 					
-					//timeFinishList�̐擪�����̃`�F�b�N
+					//timeFinishListの先頭文字のチェック
 					if(timeFinishList.get(i).startsWith("0")) {
 						timeFinish = timeFinishList.get(i).substring(1,4);
 					}else {
 						timeFinish = timeFinishList.get(i);
 					}
 					
-					//�Ζ����т̕ύX
+					//勤務実績の変更
 					wrService.updateResult(staffEntity.getId(), wrEntity.getDate().toString(), Integer.parseInt(status.get(i)), 
 							Integer.parseInt(timeStart), Integer.parseInt(timeFinish));
 				}

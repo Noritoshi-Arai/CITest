@@ -1,11 +1,11 @@
 package com.example.entity;
 
 public class WorkStatusEntity {
-	//変数の定義
+	//螟画焚縺ｮ螳夂ｾｩ
 		private int status;
 		private String statusName;
 		
-		//コンストラクタの定義
+		//繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ縺ｮ螳夂ｾｩ
 		public WorkStatusEntity() {
 			status = 0;
 			statusName = null;
@@ -16,7 +16,7 @@ public class WorkStatusEntity {
 			this.statusName = statusName;
 		}
 		
-		//setter, getterの定義
+		//setter, getter縺ｮ螳夂ｾｩ
 		//status
 		public void setStatus(int status) {
 			this.status = status;

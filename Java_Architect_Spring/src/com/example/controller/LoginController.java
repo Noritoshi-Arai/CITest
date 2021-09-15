@@ -50,22 +50,22 @@ public class LoginController {
 			Model model) {
 		StaffEntity staffEntity = staffService.searchStaff(id, password);
 		if(staffEntity == null) {
-			model.addAttribute("LoginError", "ID‚Ü‚½‚ÍƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·");
+			model.addAttribute("LoginError", "IDã¾ãŸã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™ã€‚");
 			return "Login";
 		}
 		
-		//ƒƒbƒZ[ƒWo—Í
+		//ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½oï¿½ï¿½
 		Date today = new Date();
 		SimpleDateFormat ysdf = new SimpleDateFormat("yyyy");
 		SimpleDateFormat msdf = new SimpleDateFormat("MM");
 		System.out.println("a");
 		boolean result = wsService.message(staffEntity.getId(), ysdf.format(today), msdf.format(today));
 		if(!result) {
-			model.addAttribute("restMsg", msdf.format(today) + "Œ‚Ì—L‹xæ“¾—\’è‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			model.addAttribute("restMsg", msdf.format(today) + "æœˆã®æœ‰çµ¦å–å¾—äºˆå®šã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 		}
 		
 		
-		//ƒZƒbƒVƒ‡ƒ“‚Éid‚Ænamekanji‚ğ“o˜^
+		//ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½namekanjiï¿½ï¿½oï¿½^
 		session.setAttribute("staffEntity", staffEntity);
 		//model.addAttribute("nameKanji", staffEntity.getNameKanji());
 		return "TopPage";
@@ -78,10 +78,10 @@ public class LoginController {
 		SimpleDateFormat ysdf = new SimpleDateFormat("yyyy");
 		SimpleDateFormat msdf = new SimpleDateFormat("MM");
 		
-		//o‹Î—\’è‚É—L‹x‚ª”½‰f‚³‚ê‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN
+		//ï¿½oï¿½Î—\ï¿½ï¿½É—Lï¿½xï¿½ï¿½ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½`ï¿½Fï¿½bï¿½N
 		boolean result = wsService.message(staffEntity.getId(), ysdf.format(today), msdf.format(today));
 		if(!result) {
-			model.addAttribute("restMsg", msdf.format(today) + "Œ‚Ì—L‹xæ“¾—\’è‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			model.addAttribute("restMsg", msdf.format(today) + "æœˆã®æœ‰çµ¦å–å¾—äºˆå®šã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
 		}
 		return "TopPage";
 		
