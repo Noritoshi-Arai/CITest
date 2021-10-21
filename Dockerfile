@@ -1,5 +1,5 @@
-FROM openjdk:14
+FROM tomcat:9.0.40-jdk15-openjdk
 
-COPY ./Java_Architect_Spring/WebContent/META-INF/Java_Architect_Spring-0.0.1-SNAPSHOT.jar /root/Java_Architect_Spring-0.0.1-SNAPSHOT.jar
+COPY ./Java_Architect_Spring/WebContent/META-INF/Java_Architect_Spring.war /usr/local/tomcat/webapps/Java_Architect_Spring.war
 
-CMD [ "sh", "-c", "JAVA_OPTIONS" -jar /root/Java_Architect_Spring-0.0.1-SNAPSHOT.jar ]
+CMD [ "catalina.sh", "run" ]

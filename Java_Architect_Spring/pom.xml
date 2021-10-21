@@ -3,7 +3,7 @@
   <groupId>Java_Architect_Spring</groupId>
   <artifactId>Java_Architect_Spring</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
